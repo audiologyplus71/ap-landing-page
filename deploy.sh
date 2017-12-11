@@ -22,7 +22,8 @@ echo -e "Making build fingerprint...\n"
 dt=`date '+%d/%m/%Y @ %H:%M:%S'`
 
 # Modify the build date js file.
-echo "(function deployDate() {console.log('$dt');})()" > "$PARENT_PATH/build/js/fingerprint.js"
+echo "(function deployDate() {console.log('$dt');})()" > "$PARENT_PATH/js/fingerprint.js"
+
 
 # Remove build directory.
 rm -rf build
