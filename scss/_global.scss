@@ -1,0 +1,38 @@
+body {
+  @include body-font;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @include body-font;
+  font-weight: 700;
+}
+
+.text-grey {
+  color: #dddddd;
+}
+
+.text-shadow {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6)
+}
+
+.text-light-purple {
+  color: #c8d1f3;
+}
+
+.text-upper {
+  text-transform: uppercase;
+}
+
+.product-quote {
+  margin-bottom: 40px;
+  color: #303471;
+}
+
+.blockquote {
+  margin-bottom: 2rem;
+}
