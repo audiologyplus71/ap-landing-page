@@ -11,10 +11,11 @@ if [[ $BRANCH != "master" ]] ; then
 	exit
 fi
 
+# Run Gulp task.
+echo -e "Building via Gulp...\n"
+gulp
 
-
-
-
+# Run fingerprint logic
 echo -e "Making build fingerprint...\n"
 
 # Capture the current date and time.
@@ -23,26 +24,28 @@ dt=`date '+%d/%m/%Y @ %H:%M:%S'`
 # Modify the build date js file.
 echo "(function deployDate() {console.log('$dt');})()" > "$PARENT_PATH/build/js/fingerprint.js"
 
+# Remove build directory.
+rm -rf build
 
+# Copy files to build.
+mkdir build
+cp index.html build/
+cp css/ build/
+cp img/ build/
+cp vendor/ build/
+cp js/ build/
 
-
-
-echo -e "Committing fingerprint changes...\n"
+# Commit changes.
+echo -e "Committing pre-deploy changes...\n"
 git add -A && \
-git commit -m "Update fingerprint @ $dt"
+git commit -m "Pre-deploy changes @ $dt"
 
-
-
-
-
+# Deploy site to gh-pages.
 echo -e "Deploying site to gh-pages...\n"
 git checkout gh-pages && \
 git merge master && \
 git push origin --delete gh-pages && \
 git subtree push --prefix build origin gh-pages && \
 git checkout master
-
-
-
 
 echo -e "Deploy done...\n"
