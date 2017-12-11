@@ -30,10 +30,10 @@ rm -rf build
 # Copy files to build.
 mkdir build
 cp index.html build/
-cp css/ build/
-cp img/ build/
-cp vendor/ build/
-cp js/ build/
+cp -r ./css ./build
+cp -r ./img ./build
+cp -r ./vendor ./build
+cp -r ./js ./build
 
 # Commit changes.
 echo -e "Committing pre-deploy changes...\n"
