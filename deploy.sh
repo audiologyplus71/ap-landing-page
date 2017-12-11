@@ -30,6 +30,7 @@ rm -rf build
 # Copy files to build.
 mkdir build
 cp index.html build/
+cp favicon.ico build/
 cp -r ./css ./build
 cp -r ./img ./build
 cp -r ./vendor ./build
