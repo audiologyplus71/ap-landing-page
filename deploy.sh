@@ -46,7 +46,7 @@ git commit -m "Pre-deploy changes @ $dt"
 echo -e "Deploying site to gh-pages...\n"
 git checkout gh-pages && \
 git merge master && \
-git push origin --delete gh-pages && \
+# git push origin --delete gh-pages && \
 git subtree push --prefix build origin gh-pages && \
 git checkout master
 
